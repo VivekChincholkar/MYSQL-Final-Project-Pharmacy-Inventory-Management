@@ -1,4 +1,4 @@
-# 💊🏥  Pharmacy Inventory Management - Phase-3 SQL Queries  
+## 💊🏥  Pharmacy Inventory Management - Phase-3 SQL Queries  
 A mega set of SQL queries for mastering real-world **healthcare + retail databases**! 
 
 ---
