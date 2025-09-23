@@ -2,7 +2,7 @@
 A mega set of SQL queries for mastering real-world **healthcare + retail databases**! 
 
 ---
-## 🔤 TL;DR  
+## 🔤 Phase Overview  
 This `.sql` file = 🏪 Pharmacy DB x ⚡ SQL skills  
 Includes ➡️ Joins 🔗 | Subqueries 🧩 | Functions 🧠 | CRUD Ops 🛠️  
 Perfect for practice, portfolios, and flexing data logic skills 💪  
