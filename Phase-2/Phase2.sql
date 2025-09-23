@@ -1,4 +1,4 @@
--- Project Phase-2(DDLMLQLC&COp) Pharmacy
+-- Project Phase-2(DDL<DML<DQL<C&C<OP)
 
 -- Table 1: Suppliers Table Queries
 -- Query 1: DDL - Add column for supplier status
