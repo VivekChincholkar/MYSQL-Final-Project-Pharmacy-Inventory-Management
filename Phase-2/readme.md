@@ -1,6 +1,6 @@
 🧠 Pharmacy Database System – SQL Project (Phase 2)  
 --
-📆 Phase 2 – (DDL<ML<QL<C&C<Op) 👨‍💻 By Vivek Shriram Chincholkar  
+📆 Phase 2 – (DDL<DML<DQL<C&C<OP) 
 ___
 📌 Phase 2 Objective 
 --
