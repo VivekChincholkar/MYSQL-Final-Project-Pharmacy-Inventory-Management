@@ -1,4 +1,4 @@
-# 📊 Pharmacy Inventory Management Project (Phase 5)
+# 📊 Pharmacy Inventory Management (Phase 5)
 
 This repository contains Phase 5 of the Pharmacy Inventory Management System.  
 It extends the system by implementing advanced SQL concepts including DDL, DML, DQL, constraints, joins, subqueries, functions, views, CTEs, stored procedures, window functions, transactions, and triggers.
