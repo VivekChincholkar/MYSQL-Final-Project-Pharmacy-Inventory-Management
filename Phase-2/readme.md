@@ -1,6 +1,6 @@
 🧠 Pharmacy Inventory Management – SQL Project (Phase 2)  
 --
-📆 Phase 2 – (DDL<DML<DQL<C&C<OP) 
+📆 Phase 2 – (DDL<DML<DQL<C&C) 
 ___
 📌 Phase 2 Objective 
 --
@@ -11,9 +11,7 @@ ___
 Feature | Status  
 --- | ---  
 🔹 DDL, DML, DQL | ✅ Applied  
-🔹 Operators, Clauses, Alias, Functions | ✅ Used  
-🔹 Joins & Subqueries | ✅ Done  
-🔹 ON DELETE / UPDATE CASCADE | ✅ Included  
+🔹 Operators, Clauses, Alias, Functions | ✅ Used   
 🔹 Neatly Commented Queries | ✅ Followed 
 
 🧠 What’s Included in Phase 2.sql  
@@ -36,11 +34,7 @@ ___
 SELECT location AS Location, SUM(quantity_in_stock) AS TotalStock  
 FROM Inventory  
 GROUP BY Location  
-ORDER BY TotalStock DESC;  
-
-🔗 Joins & Subqueries  
-INNER, LEFT, RIGHT, FULL OUTER joins  
-Nested queries inside SELECT, WHERE, FROM (e.g., joining Suppliers with Purchase_Orders and Purchase_Order_Items)  
+ORDER BY TotalStock DESC;   
 ___
 🧼 Clean Query Formatting & Commenting  
 --
@@ -50,7 +44,7 @@ ___
 ___
 💡 What You’ll See in the Code  
 --
-📌 250+ queries demonstrating:  
+📌 75+ queries demonstrating:  
 Logical joins across related tables (e.g., Products with Manufacturers and Categories)  
 Use of aliases and functions (e.g., COUNT(*) AS total_suppliers)  
 Smart use of subqueries and operators (e.g., WHERE expiry_date < DATE_ADD(CURDATE(), INTERVAL 3 MONTH))  
