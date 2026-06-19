@@ -1,6 +1,7 @@
--- Creating the pharmacy inventory management  
+-- Create a new database for pharmacy inventory management  0
 CREATE DATABASE Pharmacy_Inventory_Management;
 
+-- Switch to using the newly created database  
 USE Pharmacy_Inventory_Management;
 
 -- Drop the database if it already exists  
@@ -34,22 +35,34 @@ T12 : Sale_Items(sale_item_id, sale_id, product_id, quantity, unit_price, discou
 
 T13 : Employees(employee_id, employee_name, position, department, hire_date, salary, phone, email, address, emergency_contact, created_date)
 
-T14 : Payments(payment_id, payment_type, reference_id, payment_date, amount, payment_method, transaction_id, status, notes, processed_by, created_date)
+T14 : Shifts(shift_id, shift_name, start_time, end_time, break_duration, shift_type, hourly_rate_multiplier, is_active, created_by, notes, created_date)
 
-T15 : Insurance_Providers(provider_id, provider_name, contact_person, phone, email, address, contract_start_date, contract_end_date, discount_percentage, claim_processing_days, created_date)
+T15 : Employee_Shifts(employee_shift_id, employee_id, shift_id, work_date, actual_start_time, actual_end_time, break_minutes, overtime_minutes, hourly_rate, total_hours, created_date)
 
-T16 : Insurance_Claims(claim_id, prescription_id, provider_id, claim_date, claim_amount, covered_amount, status, processed_date, rejection_reason, notes, created_date)
+T16 : Vendors(vendor_id, vendor_name, vendor_type, contact_person, phone, email, website, address, payment_terms, tax_id, created_date)
 
-T17 : Patient_Medical_History(history_id, customer_id, condition_name, diagnosis_date, severity, current_status, treatment_description, doctor_name, doctor_contact, notes, created_date)
+T17 : Vendor_Contracts(contract_id, vendor_id, contract_name, start_date, end_date, contract_value, payment_terms, renewal_terms, termination_clause, contract_status, created_date)
 
-T18 : Drug_Interactions(interaction_id, product_id1, product_id2, interaction_type, severity, description, management_guidance, reference_source, created_date)
+T18 : Expenses(expense_id, expense_type, vendor_id, expense_date, amount, payment_method, description, reference_number, status, approved_by, created_date)
 
-T19 : Inventory_Adjustments(adjustment_id, product_id, adjustment_date, quantity_adjusted, reason, adjusted_by, adjustment_type, notes, created_date)
+T19 : Payments(payment_id, payment_type, reference_id, payment_date, amount, payment_method, transaction_id, status, notes, processed_by, created_date)
 
-T20 : Notifications(notification_id, notification_type, related_id, message, priority, status, created_for, created_by, created_date, resolved_date)
+T20 : Insurance_Providers(provider_id, provider_name, contact_person, phone, email, address, contract_start_date, contract_end_date, discount_percentage, claim_processing_days, created_date)
+
+T21 : Insurance_Claims(claim_id, prescription_id, provider_id, claim_date, claim_amount, covered_amount, status, processed_date, rejection_reason, notes, created_date)
+
+T22 : Patient_Medical_History(history_id, customer_id, condition_name, diagnosis_date, severity, current_status, treatment_description, doctor_name, doctor_contact, notes, created_date)
+
+T23 : Drug_Interactions(interaction_id, product_id1, product_id2, interaction_type, severity, description, management_guidance, reference_source, created_date)
+
+T24 : Inventory_Adjustments(adjustment_id, product_id, adjustment_date, quantity_adjusted, reason, adjusted_by, adjustment_type, notes, created_date)
+
+T25 : Notifications(notification_id, notification_type, related_id, message, priority, status, created_for, created_by, created_date, resolved_date)
 */
 
 -- TABLE 1: SUPPLIERS
+
+-- Create table
 CREATE TABLE Suppliers (
     supplier_id INT PRIMARY KEY AUTO_INCREMENT,
     supplier_name VARCHAR(100) NOT NULL,
@@ -97,6 +110,8 @@ TRUNCATE TABLE Suppliers;
 DROP TABLE IF EXISTS Suppliers;
 
 -- TABLE 2: CATEGORIES
+
+-- Create table
 CREATE TABLE Categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
     category_name VARCHAR(100) NOT NULL,
@@ -144,6 +159,8 @@ TRUNCATE TABLE Categories;
 DROP TABLE IF EXISTS Categories;
 
 -- TABLE 3: MANUFACTURERS
+
+-- Create table
 create table Manufacturers (
     manufacturer_id INT PRIMARY KEY AUTO_INCREMENT,
     manufacturer_name VARCHAR(100) NOT NULL,
@@ -192,6 +209,8 @@ DROP TABLE IF EXISTS Manufacturers;
 
 
 -- TABLE 4: PRODUCTS
+
+-- Create table
 CREATE TABLE Products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     product_name VARCHAR(100) NOT NULL,
@@ -240,6 +259,8 @@ DROP TABLE IF EXISTS Products;
 
 
 -- TABLE 5: INVENTORY
+
+-- Create table
 CREATE TABLE Inventory (
     inventory_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,
@@ -288,6 +309,8 @@ TRUNCATE TABLE Inventory;
 DROP TABLE IF EXISTS Inventory;
 
 -- TABLE 6: CUSTOMERS
+
+-- Create table
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_name VARCHAR(100) NOT NULL,
@@ -335,6 +358,8 @@ TRUNCATE TABLE Customers;
 DROP TABLE IF EXISTS Customers;
 
 -- TABLE 7: PRESCRIPTIONS
+
+-- Create table
 CREATE TABLE Prescriptions (
     prescription_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
@@ -384,6 +409,8 @@ TRUNCATE TABLE Prescriptions;
 DROP TABLE IF EXISTS Prescriptions;
 
 -- TABLE 8: PRESCRIPTION_ITEMS
+
+-- Create table
 CREATE TABLE Prescription_Items (
     prescription_item_id INT PRIMARY KEY AUTO_INCREMENT,
     prescription_id INT,
@@ -433,6 +460,8 @@ TRUNCATE TABLE Prescription_Items;
 DROP TABLE IF EXISTS Prescription_Items;
 
 -- TABLE 9: PURCHASE_ORDERS
+
+-- Create table
 CREATE TABLE Purchase_Orders (
     purchase_order_id INT PRIMARY KEY AUTO_INCREMENT,
     supplier_id INT,
@@ -482,6 +511,8 @@ DROP TABLE IF EXISTS Purchase_Orders;
 
 
 -- TABLE 10: PURCHASE_ORDER_ITEMS
+
+-- Create table
 CREATE TABLE Purchase_Order_Items (
     purchase_order_item_id INT PRIMARY KEY AUTO_INCREMENT,
     purchase_order_id INT,
@@ -532,6 +563,8 @@ TRUNCATE TABLE Purchase_Order_Items;
 DROP TABLE IF EXISTS Purchase_Order_Items;
 
 -- TABLE 11: SALES
+
+-- Create table
 CREATE TABLE Sales (
     sale_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
@@ -580,6 +613,8 @@ TRUNCATE TABLE Sales;
 DROP TABLE IF EXISTS Sales;
 
 -- TABLE 12: SALE_ITEMS
+
+-- Create table
 CREATE TABLE Sale_Items (
     sale_item_id INT PRIMARY KEY AUTO_INCREMENT,
     sale_id INT,
@@ -630,6 +665,8 @@ TRUNCATE TABLE Sale_Items;
 DROP TABLE IF EXISTS Sale_Items;
 
 -- TABLE 13: EMPLOYEES
+
+-- Create table
 CREATE TABLE Employees (
     employee_id INT PRIMARY KEY AUTO_INCREMENT,
     employee_name VARCHAR(100) NOT NULL,
@@ -676,7 +713,258 @@ TRUNCATE TABLE Employees;
 -- Drop Employees table if it exists
 DROP TABLE IF EXISTS Employees;
 
--- TABLE 14: PAYMENTS
+-- TABLE 14: SHIFTS
+
+-- Create table
+CREATE TABLE Shifts (
+    shift_id INT PRIMARY KEY AUTO_INCREMENT,
+    shift_name VARCHAR(50) NOT NULL,
+    start_time TIME,
+    end_time TIME,
+    break_duration INT,
+    shift_type VARCHAR(20),
+    hourly_rate_multiplier DECIMAL(3,2),
+    is_active BOOLEAN DEFAULT TRUE,
+    created_by VARCHAR(50),
+    notes TEXT,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample records
+INSERT INTO Shifts VALUES
+(1, 'Morning Shift', '06:00:00', '14:00:00', 60, 'Regular', 1.00, TRUE, 'admin', '8-hour morning shift', '2024-01-01'),
+(2, 'Afternoon Shift', '14:00:00', '22:00:00', 60, 'Regular', 1.00, TRUE, 'admin', '8-hour afternoon shift', '2024-01-02'),
+(3, 'Night Shift', '22:00:00', '06:00:00', 60, 'Night', 1.15, TRUE, 'admin', '8-hour night shift with premium', '2024-01-03'),
+(4, 'Weekend Day', '08:00:00', '16:00:00', 60, 'Weekend', 1.25, TRUE, 'admin', '8-hour weekend day shift', '2024-01-04'),
+(5, 'Weekend Night', '16:00:00', '00:00:00', 60, 'Weekend', 1.40, TRUE, 'admin', '8-hour weekend night shift', '2024-01-05'),
+(6, 'Holiday Shift', '08:00:00', '16:00:00', 60, 'Holiday', 1.50, TRUE, 'admin', '8-hour holiday shift', '2024-01-06'),
+(7, 'Part-time Morning', '08:00:00', '12:00:00', 30, 'Part-time', 1.00, TRUE, 'admin', '4-hour part-time morning', '2024-01-07'),
+(8, 'Part-time Afternoon', '12:00:00', '16:00:00', 30, 'Part-time', 1.00, TRUE, 'admin', '4-hour part-time afternoon', '2024-01-08'),
+(9, 'Part-time Evening', '16:00:00', '20:00:00', 30, 'Part-time', 1.10, TRUE, 'admin', '4-hour part-time evening', '2024-01-09'),
+(10, 'Emergency On-call', '00:00:00', '23:59:59', 0, 'Emergency', 2.00, TRUE, 'admin', '24-hour emergency coverage', '2024-01-10'),
+(11, 'Double Shift', '06:00:00', '22:00:00', 120, 'Extended', 1.20, TRUE, 'admin', '16-hour double shift', '2024-01-11'),
+(12, 'Split Shift A', '08:00:00', '12:00:00', 30, 'Split', 1.00, TRUE, 'admin', 'Morning part of split shift', '2024-01-12'),
+(13, 'Split Shift B', '16:00:00', '20:00:00', 30, 'Split', 1.00, TRUE, 'admin', 'Evening part of split shift', '2024-01-13'),
+(14, 'Supervisor Day', '07:00:00', '15:00:00', 60, 'Supervisor', 1.30, TRUE, 'admin', '8-hour supervisor day shift', '2024-01-14'),
+(15, 'Supervisor Night', '15:00:00', '23:00:00', 60, 'Supervisor', 1.45, TRUE, 'admin', '8-hour supervisor night shift', '2024-01-15'),
+(16, 'Training Shift', '09:00:00', '17:00:00', 60, 'Training', 0.85, TRUE, 'admin', '8-hour training shift', '2024-01-16'),
+(17, 'Inventory Shift', '05:00:00', '13:00:00', 60, 'Inventory', 1.10, TRUE, 'admin', '8-hour inventory management', '2024-01-17'),
+(18, 'Delivery Shift', '10:00:00', '18:00:00', 60, 'Delivery', 1.05, TRUE, 'admin', '8-hour delivery shift', '2024-01-18'),
+(19, 'Customer Service', '08:00:00', '20:00:00', 90, 'Customer', 1.00, TRUE, 'admin', '12-hour customer service', '2024-01-19'),
+(20, 'Closing Shift', '18:00:00', '02:00:00', 60, 'Closing', 1.25, TRUE, 'admin', '8-hour closing shift', '2024-01-20');
+
+-- Retrieve all records from Shifts
+SELECT * FROM Shifts;
+
+-- Clear all data from Shifts table
+TRUNCATE TABLE Shifts;
+
+-- Drop Shifts table if it exists
+DROP TABLE IF EXISTS Shifts;
+
+-- TABLE 15: EMPLOYEE_SHIFTS
+
+-- Create table
+CREATE TABLE Employee_Shifts (
+    employee_shift_id INT PRIMARY KEY AUTO_INCREMENT,
+    employee_id INT,
+    shift_id INT,
+    work_date DATE,
+    actual_start_time TIME,
+    actual_end_time TIME,
+    break_minutes INT,
+    overtime_minutes INT,
+    hourly_rate DECIMAL(8,2),
+    total_hours DECIMAL(5,2),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
+    FOREIGN KEY (shift_id) REFERENCES Shifts(shift_id)
+);
+
+-- Insert sample records
+INSERT INTO Employee_Shifts VALUES
+(1, 101, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 40.87, 8.0, '2024-01-15'),
+(2, 102, 1, '2024-01-15', '06:05:00', '14:10:00', 60, 10, 21.63, 8.1, '2024-01-15'),
+(3, 103, 2, '2024-01-15', '14:00:00', '22:00:00', 60, 0, 37.50, 8.0, '2024-01-15'),
+(4, 104, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 31.25, 8.0, '2024-01-15'),
+(5, 105, 2, '2024-01-15', '14:00:00', '22:00:00', 60, 0, 15.38, 8.0, '2024-01-15'),
+(6, 106, 14, '2024-01-15', '07:00:00', '15:00:00', 60, 0, 49.62, 8.0, '2024-01-15'),
+(7, 107, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 26.44, 8.0, '2024-01-15'),
+(8, 108, 2, '2024-01-15', '14:00:00', '22:00:00', 60, 0, 39.42, 8.0, '2024-01-15'),
+(9, 109, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 20.19, 8.0, '2024-01-15'),
+(10, 110, 2, '2024-01-15', '14:00:00', '22:00:00', 60, 0, 13.46, 8.0, '2024-01-15'),
+(11, 111, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 27.88, 8.0, '2024-01-15'),
+(12, 112, 2, '2024-01-15', '14:00:00', '22:00:00', 60, 0, 25.00, 8.0, '2024-01-15'),
+(13, 113, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 18.27, 8.0, '2024-01-15'),
+(14, 114, 18, '2024-01-15', '10:00:00', '18:00:00', 60, 0, 17.79, 8.0, '2024-01-15'),
+(15, 115, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 29.81, 8.0, '2024-01-15'),
+(16, 116, 3, '2024-01-15', '22:00:00', '06:00:00', 60, 0, 23.08, 8.0, '2024-01-15'),
+(17, 117, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 34.62, 8.0, '2024-01-15'),
+(18, 118, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 20.67, 8.0, '2024-01-15'),
+(19, 119, 2, '2024-01-15', '14:00:00', '22:00:00', 60, 0, 14.42, 8.0, '2024-01-15'),
+(20, 120, 1, '2024-01-15', '06:00:00', '14:00:00', 60, 0, 42.31, 8.0, '2024-01-15');
+
+-- Retrieve all records from Employee_Shifts
+SELECT * FROM Employee_Shifts;
+
+-- Clear all data from Employee_Shifts table
+TRUNCATE TABLE Employee_Shifts;
+
+-- Drop Employee_Shifts table if it exists
+DROP TABLE IF EXISTS Employee_Shifts;
+
+-- TABLE 16: VENDORS
+
+-- Create table
+CREATE TABLE Vendors (
+    vendor_id INT PRIMARY KEY AUTO_INCREMENT,
+    vendor_name VARCHAR(100) NOT NULL,
+    vendor_type VARCHAR(50),
+    contact_person VARCHAR(100),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    website VARCHAR(100),
+    address TEXT,
+    payment_terms VARCHAR(50),
+    tax_id VARCHAR(50),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample records
+INSERT INTO Vendors VALUES
+(1, 'MedEquip Solutions', 'Equipment', 'John Carter', '+1-555-3001', 'john.carter@medequip.com', 'www.medequip.com', '123 Equipment St', 'Net 30', 'TAX001', '2024-01-01'),
+(2, 'Pharma Logistics', 'Logistics', 'Sarah Kim', '+1-555-3002', 'sarah.kim@pharmalog.com', 'www.pharmalog.com', '456 Logistics Ave', 'Net 15', 'TAX002', '2024-01-02'),
+(3, 'Medical Supplies Inc', 'Supplies', 'Mike Johnson', '+1-555-3003', 'mike.johnson@medsupplies.com', 'www.medsupplies.com', '789 Supply Road', 'Net 45', 'TAX003', '2024-01-03'),
+(4, 'IT Healthcare Systems', 'Technology', 'Emily Chen', '+1-555-3004', 'emily.chen@ithealthcare.com', 'www.ithealthcare.com', '321 Tech Blvd', 'Net 30', 'TAX004', '2024-01-04'),
+(5, 'CleanCare Services', 'Cleaning', 'David Brown', '+1-555-3005', 'david.brown@cleancare.com', 'www.cleancare.com', '654 Clean Street', 'Net 15', 'TAX005', '2024-01-05'),
+(6, 'SecurePharm Systems', 'Security', 'Lisa Davis', '+1-555-3006', 'lisa.davis@securepharm.com', 'www.securepharm.com', '987 Security Ave', 'Net 30', 'TAX006', '2024-01-06'),
+(7, 'PowerMed Utilities', 'Utilities', 'Robert Wilson', '+1-555-3007', 'robert.wilson@powermed.com', 'www.powermed.com', '147 Power Lane', 'Net 30', 'TAX007', '2024-01-07'),
+(8, 'Office Supplies Plus', 'Office Supplies', 'Jennifer Taylor', '+1-555-3008', 'jennifer.taylor@officeplus.com', 'www.officeplus.com', '258 Office Drive', 'Net 30', 'TAX008', '2024-01-08'),
+(9, 'Uniform Healthcare', 'Uniforms', 'Chris Anderson', '+1-555-3009', 'chris.anderson@uniformhc.com', 'www.uniformhc.com', '369 Uniform Street', 'Net 15', 'TAX009', '2024-01-09'),
+(10, 'Consulting Partners', 'Consulting', 'Anna Martinez', '+1-555-3010', 'anna.martinez@consultingp.com', 'www.consultingp.com', '741 Consult Ave', 'Net 30', 'TAX010', '2024-01-10'),
+(11, 'Waste Management Pro', 'Waste Management', 'Kevin Lee', '+1-555-3011', 'kevin.lee@wastepro.com', 'www.wastepro.com', '852 Waste Road', 'Net 15', 'TAX011', '2024-01-11'),
+(12, 'Insurance Brokers Ltd', 'Insurance', 'Michelle White', '+1-555-3012', 'michelle.white@insurebrokers.com', 'www.insurebrokers.com', '963 Insurance Blvd', 'Net 30', 'TAX012', '2024-01-12'),
+(13, 'Training Solutions', 'Training', 'Steven Garcia', '+1-555-3013', 'steven.garcia@trainingsol.com', 'www.trainingsol.com', '174 Training Lane', 'Net 30', 'TAX013', '2024-01-13'),
+(14, 'Marketing Experts', 'Marketing', 'Amanda Rodriguez', '+1-555-3014', 'amanda.rodriguez@marketexp.com', 'www.marketexp.com', '285 Marketing St', 'Net 15', 'TAX014', '2024-01-14'),
+(15, 'Legal Services Pro', 'Legal', 'Daniel Thomas', '+1-555-3015', 'daniel.thomas@legalpro.com', 'www.legalpro.com', '396 Legal Avenue', 'Net 30', 'TAX015', '2024-01-15'),
+(16, 'Accounting Solutions', 'Accounting', 'Laura Harris', '+1-555-3016', 'laura.harris@accountsol.com', 'www.accountsol.com', '507 Account Drive', 'Net 30', 'TAX016', '2024-01-16'),
+(17, 'Construction Services', 'Construction', 'Brian Lewis', '+1-555-3017', 'brian.lewis@constructsvc.com', 'www.constructsvc.com', '618 Construct Road', 'Net 30', 'TAX017', '2024-01-17'),
+(18, 'Delivery Express', 'Delivery', 'Nicole Young', '+1-555-3018', 'nicole.young@deliveryexp.com', 'www.deliveryexp.com', '729 Delivery Lane', 'Net 15', 'TAX018', '2024-01-18'),
+(19, 'Maintenance Masters', 'Maintenance', 'Patrick Walker', '+1-555-3019', 'patrick.walker@maintmasters.com', 'www.maintmasters.com', '840 Maintenance St', 'Net 30', 'TAX019', '2024-01-19'),
+(20, 'Telecommunications Co', 'Communications', 'Jessica Green', '+1-555-3020', 'jessica.green@telecom.com', 'www.telecom.com', '951 Telecom Blvd', 'Net 30', 'TAX020', '2024-01-20');
+
+-- Retrieve all records from Vendors
+SELECT * FROM Vendors;
+
+-- Clear all data from Vendors table
+TRUNCATE TABLE Vendors;
+
+-- Drop Vendors table if it exists
+DROP TABLE IF EXISTS Vendors;
+
+-- TABLE 17: VENDOR_CONTRACTS
+
+-- Create table
+CREATE TABLE Vendor_Contracts (
+    contract_id INT PRIMARY KEY AUTO_INCREMENT,
+    vendor_id INT,
+    contract_name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    contract_value DECIMAL(12,2),
+    payment_terms VARCHAR(50),
+    renewal_terms VARCHAR(100),
+    termination_clause TEXT,
+    contract_status VARCHAR(20),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (vendor_id) REFERENCES Vendors(vendor_id)
+);
+
+-- Insert sample records
+INSERT INTO Vendor_Contracts VALUES
+(1, 1, 'Medical Equipment Maintenance', '2024-01-01', '2024-12-31', 12000.00, 'Quarterly', 'Annual renewal', '30 days notice', 'Active', '2024-01-01'),
+(2, 2, 'Pharmaceutical Logistics', '2024-01-15', '2024-12-31', 18000.00, 'Monthly', 'Biannual review', '60 days notice', 'Active', '2024-01-02'),
+(3, 3, 'Medical Supplies Agreement', '2024-02-01', '2025-01-31', 24000.00, 'Net 30', 'Annual renewal', '90 days notice', 'Active', '2024-01-03'),
+(4, 4, 'IT Support Services', '2024-01-01', '2024-06-30', 15000.00, 'Monthly', '6-month renewal', '30 days notice', 'Active', '2024-01-04'),
+(5, 5, 'Cleaning Services Contract', '2024-01-01', '2024-12-31', 9600.00, 'Bi-weekly', 'Annual renewal', '30 days notice', 'Active', '2024-01-05'),
+(6, 6, 'Security Services Agreement', '2024-01-15', '2024-12-31', 30000.00, 'Monthly', 'Annual renewal', '60 days notice', 'Active', '2024-01-06'),
+(7, 7, 'Utility Management', '2024-01-01', '2024-12-31', 24000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Active', '2024-01-07'),
+(8, 8, 'Office Supplies Agreement', '2024-01-01', '2024-12-31', 6000.00, 'Net 30', 'Annual renewal', '30 days notice', 'Active', '2024-01-08'),
+(9, 9, 'Uniform Services Contract', '2024-02-01', '2024-12-31', 8400.00, 'Quarterly', 'Annual renewal', '30 days notice', 'Pending', '2024-01-09'),
+(10, 10, 'Consulting Services', '2024-01-15', '2024-06-30', 18000.00, 'Monthly', '6-month renewal', '30 days notice', 'Active', '2024-01-10'),
+(11, 11, 'Waste Disposal Services', '2024-01-01', '2024-12-31', 12000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Active', '2024-01-11'),
+(12, 12, 'Insurance Brokerage', '2024-01-01', '2024-12-31', 36000.00, 'Quarterly', 'Annual renewal', '60 days notice', 'Active', '2024-01-12'),
+(13, 13, 'Employee Training Program', '2024-02-01', '2024-12-31', 15000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Pending', '2024-01-13'),
+(14, 14, 'Marketing Services', '2024-01-15', '2024-06-30', 24000.00, 'Monthly', '6-month renewal', '30 days notice', 'Active', '2024-01-14'),
+(15, 15, 'Legal Services Retainer', '2024-01-01', '2024-12-31', 48000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Active', '2024-01-15'),
+(16, 16, 'Accounting Services', '2024-01-01', '2024-12-31', 36000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Active', '2024-01-16'),
+(17, 17, 'Facility Maintenance', '2024-02-01', '2024-12-31', 42000.00, 'Monthly', 'Annual renewal', '60 days notice', 'Pending', '2024-01-17'),
+(18, 18, 'Delivery Services', '2024-01-15', '2024-12-31', 30000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Active', '2024-01-18'),
+(19, 19, 'Equipment Maintenance', '2024-01-01', '2024-06-30', 18000.00, 'Monthly', '6-month renewal', '30 days notice', 'Active', '2024-01-19'),
+(20, 20, 'Telecom Services', '2024-01-01', '2024-12-31', 24000.00, 'Monthly', 'Annual renewal', '30 days notice', 'Active', '2024-01-20');
+
+-- Retrieve all records from Vendor_Contracts
+SELECT * FROM Vendor_Contracts;
+
+-- Clear all data from Vendor_Contracts table
+TRUNCATE TABLE Vendor_Contracts;
+
+-- Drop Vendor_Contracts table if it exists
+DROP TABLE IF EXISTS Vendor_Contracts;
+
+-- TABLE 18: EXPENSES
+
+-- Create table
+CREATE TABLE Expenses (
+    expense_id INT PRIMARY KEY AUTO_INCREMENT,
+    expense_type VARCHAR(50) NOT NULL,
+    vendor_id INT,
+    expense_date DATE,
+    amount DECIMAL(10,2),
+    payment_method VARCHAR(20),
+    description TEXT,
+    reference_number VARCHAR(50),
+    status VARCHAR(20),
+    approved_by VARCHAR(100),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (vendor_id) REFERENCES Vendors(vendor_id)
+);
+
+-- Insert sample records
+INSERT INTO Expenses VALUES
+(1, 'Equipment Maintenance', 1, '2024-01-05', 1000.00, 'Credit Card', 'Quarterly equipment service', 'EQ-2024-001', 'Approved', 'Robert Anderson', '2024-01-05'),
+(2, 'Logistics', 2, '2024-01-10', 1500.00, 'Bank Transfer', 'Monthly logistics fee', 'LG-2024-001', 'Approved', 'Robert Anderson', '2024-01-10'),
+(3, 'Medical Supplies', 3, '2024-01-15', 2000.00, 'Check', 'Monthly supply order', 'MS-2024-001', 'Approved', 'Robert Anderson', '2024-01-15'),
+(4, 'IT Services', 4, '2024-01-20', 2500.00, 'Credit Card', 'Monthly IT support', 'IT-2024-001', 'Approved', 'Robert Anderson', '2024-01-20'),
+(5, 'Cleaning Services', 5, '2024-01-25', 800.00, 'Bank Transfer', 'Bi-weekly cleaning', 'CS-2024-001', 'Approved', 'Robert Anderson', '2024-01-25'),
+(6, 'Security Services', 6, '2024-01-30', 2500.00, 'Check', 'Monthly security', 'SC-2024-001', 'Approved', 'Robert Anderson', '2024-01-30'),
+(7, 'Utilities', 7, '2024-02-05', 2000.00, 'Credit Card', 'Monthly utilities', 'UT-2024-001', 'Approved', 'Robert Anderson', '2024-02-05'),
+(8, 'Office Supplies', 8, '2024-02-10', 500.00, 'Bank Transfer', 'Office supplies order', 'OS-2024-001', 'Approved', 'Robert Anderson', '2024-02-10'),
+(9, 'Uniforms', 9, '2024-02-15', 700.00, 'Check', 'Quarterly uniform service', 'UN-2024-001', 'Pending', NULL, '2024-02-15'),
+(10, 'Consulting', 10, '2024-02-20', 3000.00, 'Credit Card', 'Monthly consulting fee', 'CN-2024-001', 'Approved', 'Robert Anderson', '2024-02-20'),
+(11, 'Waste Disposal', 11, '2024-02-25', 1000.00, 'Bank Transfer', 'Monthly waste disposal', 'WD-2024-001', 'Approved', 'Robert Anderson', '2024-02-25'),
+(12, 'Insurance', 12, '2024-03-01', 3000.00, 'Check', 'Quarterly insurance premium', 'IN-2024-001', 'Approved', 'Robert Anderson', '2024-03-01'),
+(13, 'Training', 13, '2024-03-05', 1250.00, 'Credit Card', 'Employee training session', 'TR-2024-001', 'Pending', NULL, '2024-03-05'),
+(14, 'Marketing', 14, '2024-03-10', 2000.00, 'Bank Transfer', 'Monthly marketing services', 'MK-2024-001', 'Approved', 'Robert Anderson', '2024-03-10'),
+(15, 'Legal', 15, '2024-03-15', 4000.00, 'Check', 'Monthly legal retainer', 'LG-2024-001', 'Approved', 'Robert Anderson', '2024-03-15'),
+(16, 'Accounting', 16, '2024-03-20', 3000.00, 'Credit Card', 'Monthly accounting services', 'AC-2024-001', 'Approved', 'Robert Anderson', '2024-03-20'),
+(17, 'Maintenance', 17, '2024-03-25', 3500.00, 'Bank Transfer', 'Facility maintenance', 'MN-2024-001', 'Pending', NULL, '2024-03-25'),
+(18, 'Delivery', 18, '2024-03-30', 2500.00, 'Check', 'Monthly delivery services', 'DL-2024-001', 'Approved', 'Robert Anderson', '2024-03-30'),
+(19, 'Equipment', 19, '2024-04-05', 1500.00, 'Credit Card', 'Monthly equipment maintenance', 'EQ-2024-002', 'Approved', 'Robert Anderson', '2024-04-05'),
+(20, 'Telecom', 20, '2024-04-10', 2000.00, 'Bank Transfer', 'Monthly telecom services', 'TC-2024-001', 'Approved', 'Robert Anderson', '2024-04-10');
+
+-- Retrieve all records from Expenses
+SELECT * FROM Expenses;
+
+-- Clear all data from Expenses table
+TRUNCATE TABLE Expenses;
+
+-- Drop Expenses table if it exists
+DROP TABLE IF EXISTS Expenses;
+
+-- TABLE 19: PAYMENTS
+
+-- Create table
 CREATE TABLE Payments (
     payment_id INT PRIMARY KEY AUTO_INCREMENT,
     payment_type VARCHAR(50) NOT NULL,
@@ -724,7 +1012,9 @@ TRUNCATE TABLE Payments;
 -- Drop Payments table if it exists
 DROP TABLE IF EXISTS Payments;
 
--- TABLE 15: INSURANCE_PROVIDERS
+-- TABLE 20: INSURANCE_PROVIDERS
+
+-- Create table
 CREATE TABLE Insurance_Providers (
     provider_id INT PRIMARY KEY AUTO_INCREMENT,
     provider_name VARCHAR(100) NOT NULL,
@@ -771,7 +1061,9 @@ TRUNCATE TABLE Insurance_Providers;
 -- Drop Insurance_Providers table if it exists
 DROP TABLE IF EXISTS Insurance_Providers;
 
--- TABLE 16: INSURANCE_CLAIMS
+-- TABLE 21: INSURANCE_CLAIMS
+
+-- Create table
 CREATE TABLE Insurance_Claims (
     claim_id INT PRIMARY KEY AUTO_INCREMENT,
     prescription_id INT,
@@ -821,7 +1113,9 @@ TRUNCATE TABLE Insurance_Claims;
 DROP TABLE IF EXISTS Insurance_Claims;
 
 
--- TABLE 17: PATIENT_MEDICAL_HISTORY
+-- TABLE 22: PATIENT_MEDICAL_HISTORY
+
+-- Create table
 CREATE TABLE Patient_Medical_History (
     history_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
@@ -869,7 +1163,9 @@ TRUNCATE TABLE Patient_Medical_History;
 -- Drop Patient_Medical_History table if it exists
 DROP TABLE IF EXISTS Patient_Medical_History;
 
--- TABLE 18: DRUG_INTERACTIONS
+-- TABLE 23: DRUG_INTERACTIONS
+
+-- Create table
 CREATE TABLE Drug_Interactions (
     interaction_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id1 INT,
@@ -916,7 +1212,8 @@ TRUNCATE TABLE Drug_Interactions;
 -- Drop Drug_Interactions table if it exists
 DROP TABLE IF EXISTS Drug_Interactions;
 
--- TABLE 19: INVENTORY_ADJUSTMENTS
+-- TABLE 24: INVENTORY_ADJUSTMENTS
+-- Create table
 CREATE TABLE Inventory_Adjustments (
     adjustment_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,
@@ -963,7 +1260,9 @@ TRUNCATE TABLE Inventory_Adjustments;
 -- Drop Inventory_Adjustments table if it exists
 DROP TABLE IF EXISTS Inventory_Adjustments;
 
--- TABLE 20: NOTIFICATIONS
+-- TABLE 25: NOTIFICATIONS
+
+-- Create table
 CREATE TABLE Notifications (
     notification_id INT PRIMARY KEY AUTO_INCREMENT,
     notification_type VARCHAR(50) NOT NULL,
@@ -1010,4 +1309,3 @@ TRUNCATE TABLE Notifications;
 
 -- Drop Notifications table if it exists
 DROP TABLE IF EXISTS Notifications;
-
