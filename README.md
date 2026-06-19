@@ -5,17 +5,17 @@ A full-stack SQL project simulating a **Pharmacy Inventory & Prescription Tracke
 ---
 
 ## 📌 Project Overview
-This project implements a complete **Pharmacy Inventory & Prescription Management System** using **MySQL**. It covers **supplier management, medicine catalog, prescriptions, sales, employees, vendors, insurance claims**, and much more.  
 
-The schema is designed with **25+ interconnected tables**, supporting **inventory control, purchase orders, prescriptions, billing, insurance processing, and employee shift management**.
+This project implements a **Pharmacy Inventory Management System** using **MySQL**. It includes modules for suppliers, medicines, inventory, customers, prescriptions, purchase orders, sales, payments, drug interactions, and inventory adjustments.
 
+The schema consists of **15 interconnected tables** and demonstrates SQL concepts from basic database design to advanced features such as joins, subqueries, views, stored procedures, triggers, window functions, and transaction management.
 ---
 
 ## 📁 Phase Breakdown
 
 ### 🔹 Phase 1: Database Design  
-- Designed and created **25 relational tables** including:  
-  `Suppliers, Categories, Manufacturers, Products, Inventory, Customers, Prescriptions, Prescription_Items, Purchase_Orders, Sales, Employees, Shifts, Vendors, Insurance_Providers, Insurance_Claims, Drug_Interactions, Notifications` and more.  
+- Designed and created *15 relational tables** including:  
+  `Suppliers, Categories, Manufacturers, Products, Inventory, Customers, Prescriptions, Prescription_Items, Purchase_Orders, Drug_Interactions and more.  
 - Defined **primary keys, foreign keys, and constraints** for integrity.  
 - Populated sample data using `INSERT INTO` for each table.  
 
@@ -28,16 +28,11 @@ The schema is designed with **25+ interconnected tables**, supporting **inventor
 ### 🔹 Phase 3: Joins, Subqueries & Functions  
 - **Joins**: Inner, Left, Right, Full, and Self Joins across suppliers, products, prescriptions, and sales.  
 - **Subqueries**: Scalar and correlated subqueries for nested queries like checking prescription fulfillment.  
-- **Functions**:  
-  - Built-in: `SUM(), AVG(), MAX(), NOW(), LENGTH()`  
-  - UDFs: Custom logic for **discounts, insurance claims, and inventory valuation**.  
 
 ### 🔹 Phase 4: Advanced SQL Features  
 - **Views**: Created reusable query views (`order_summary`, `prescription_report`, `inventory_alerts`).  
-- **CTEs**: Used `WITH` for structured reporting (e.g., low-stock medicines).  
 - **Stored Procedures**: Automated tasks such as generating **monthly sales reports** and **insurance claim summaries**.  
 - **Triggers**: Example: auto-update inventory when a sale or prescription is completed.  
-- **Transaction Control (TCL)**: `COMMIT, ROLLBACK, SAVEPOINT`.  
 - **Window Functions**: `RANK(), ROW_NUMBER(), OVER()` for analytics like top-selling medicines.  
 
 ---
