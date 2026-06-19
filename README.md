@@ -8,7 +8,7 @@ A full-stack SQL project simulating a **Pharmacy Inventory & Prescription Tracke
 
 This project implements a **Pharmacy Inventory Management System** using **MySQL**. It includes modules for suppliers, medicines, inventory, customers, prescriptions, purchase orders, sales, payments, drug interactions, and inventory adjustments.
 
-The schema consists of **15 interconnected tables** and demonstrates SQL concepts from basic database design to advanced features such as joins, subqueries, views, stored procedures, triggers, window functions, and transaction management.
+The schema consists of **15 interconnected tables** and demonstrates SQL concepts from basic database design to advanced features such as joins, subqueries, views, stored procedures, triggers, window functions,etc.
 ---
 
 ## 📁 Phase Breakdown
