@@ -1,12 +1,9 @@
-# 💊 Pharmacy Inventory Management Database Project (SQL)
-
-A full-stack SQL project simulating a **Pharmacy Inventory & Prescription Tracker**. This project was built across multiple phases and showcases real-world use of **database design, data manipulation, and advanced querying techniques** in healthcare and pharmacy systems.
-
+# 💊 Pharmacy Inventory Management phase4 (SQL)
 ---
 
 ## 📌 Project Overview
 
-This project implements a **Pharmacy Inventory Management System** using **MySQL**. It includes modules for suppliers, medicines, inventory, customers, prescriptions, purchase orders, sales, payments, drug interactions, and inventory adjustments.
+This project implements a **Pharmacy Inventory Management System** using **MySQL**. It includes modules for suppliers, medicines, inventory, customers, prescriptions, purchase orders, sales, and inventory adjustments.
 
 The schema consists of **15 interconnected tables** and demonstrates SQL concepts from basic database design to advanced features such as joins, subqueries, views, stored procedures, triggers, window functions,etc.
 ---
@@ -25,7 +22,7 @@ The schema consists of **15 interconnected tables** and demonstrates SQL concept
 - **SQL Clauses**: `WHERE, GROUP BY, HAVING, ORDER BY, LIMIT`  
 - **Operators**: Logical (`AND, OR, NOT`) and Comparison (`=, >, <, BETWEEN, LIKE`).  
 
-### 🔹 Phase 3: Joins, Subqueries & Functions  
+### 🔹 Phase 3: Joins, Subqueries 
 - **Joins**: Inner, Left, Right, Full, and Self Joins across suppliers, products, prescriptions, and sales.  
 - **Subqueries**: Scalar and correlated subqueries for nested queries like checking prescription fulfillment.  
 
