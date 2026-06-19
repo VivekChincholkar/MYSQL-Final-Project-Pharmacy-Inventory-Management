@@ -4,6 +4,38 @@ CREATE DATABASE Pharmacy_Inventory_Management1;
 
 USE Pharmacy_Inventory_Management1;
 
+/*
+T1  : Suppliers(supplier_id, supplier_name, contact_person, phone, email, address, city, state, country, created_date)
+
+T2  : Categories(category_id, category_name, description, parent_category_id, is_active, created_by, created_date, updated_date, notes, sort_order)
+
+T3  : Manufacturers(manufacturer_id, manufacturer_name, contact_person, phone, email, website, address, country, license_number, created_date)
+
+T4  : Products(product_id, product_name, generic_name, manufacturer_id, category_id, strength, dosage_form, unit_price, barcode, created_date)
+
+T5  : Inventory(inventory_id, product_id, batch_number, quantity_in_stock, reorder_level, maximum_level, expiry_date, cost_price, selling_price, location, last_updated)
+
+T6  : Customers(customer_id, customer_name, date_of_birth, gender, phone, email, address, insurance_provider, insurance_number, allergies, created_date)
+
+T7  : Prescriptions(prescription_id, customer_id, doctor_name, doctor_license, prescription_date, status, total_amount, insurance_covered, patient_copay, notes, created_date)
+
+T8  : Prescription_Items(prescription_item_id, prescription_id, product_id, quantity, dosage_instructions, days_supply, unit_price, total_price, refills_remaining, original_refills, created_date)
+
+T9  : Purchase_Orders(purchase_order_id, supplier_id, order_date, expected_delivery_date, actual_delivery_date, order_status, total_amount, tax_amount, shipping_cost, notes, created_date)
+
+T10 : Purchase_Order_Items(purchase_order_item_id, purchase_order_id, product_id, quantity_ordered, quantity_received, unit_cost, total_cost, batch_number, expiry_date, received_date, 
+notes)
+
+T11 : Sales(sale_id, customer_id, sale_date, total_amount, tax_amount, discount_amount, payment_method, payment_status, cashier_id, receipt_number, created_date)
+
+T12 : Sale_Items(sale_item_id, sale_id, product_id, quantity, unit_price, discount_amount, total_price, batch_number, expiry_date, prescription_item_id, created_date)
+
+T13 : Payments(payment_id, payment_type, reference_id, payment_date, amount, payment_method, transaction_id, status, notes, processed_by, created_date)
+
+T14 : Drug_Interactions(interaction_id, product_id1, product_id2, interaction_type, severity, description, management_guidance, reference_source, created_date)
+
+T15 : Inventory_Adjustments(adjustment_id, product_id, adjustment_date, quantity_adjusted, reason, adjusted_by, adjustment_type, notes, created_date) 
+*/
 -- ============================================================================
 -- TABLE 1: SUPPLIERS (10 Records)
 -- ============================================================================
