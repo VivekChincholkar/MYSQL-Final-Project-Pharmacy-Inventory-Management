@@ -1,4 +1,4 @@
-# 💊 Pharmacy Inventory Management phase4 (SQL)
+# 💊 Pharmacy Inventory Management System (SQL)
 ---
 
 ## 📌 Project Overview
