@@ -1,10 +1,8 @@
 ## 💊🏥  Pharmacy Inventory Management - Phase-3 SQL Queries  
-A mega set of SQL queries for mastering real-world **healthcare + retail databases**! 
-
 ---
 ## 🔤 Phase Overview  
 This `.sql` file = 🏪 Pharmacy DB x ⚡ SQL skills  
-Includes ➡️ Joins 🔗 | Subqueries 🧩 | Functions 🧠 | CRUD Ops 🛠️  
+Includes ➡️ Joins 🔗 | Subqueries 🧩 |  
 Perfect for practice, portfolios, and flexing data logic skills 💪  
 
 ---
@@ -16,14 +14,14 @@ This is a mock **Pharmacy Management System** with all the essentials:
 
 🛍️ Tables include:  
 - Suppliers, Categories, Manufacturers, Products  
-- Inventory, Customers, Prescriptions, Prescription_Items  
-- Purchase Orders, Sales, Employees, Shifts, and more...  
+- Inventory, Customers, Prescriptions 
+- Purchase Orders, Sales,, and more...  
 
 ---
 🚀 Query Categories  
 ---
 A < Joins < SQ < Fun < B&UD  
-(A = Basic, SQ = Subqueries, Fun = Functions, B&UD = Basic + Update/Delete)  
+(A = Basic, SQ = Subqueries)  
 
 🔗 Joins (INNER / LEFT / RIGHT / FULL)  
 ```sql
@@ -48,32 +46,13 @@ WHERE EXISTS (SELECT 1 FROM Prescriptions pr WHERE pr.customer_id = Customers.cu
 ```
 ---
 
-🧠 Functions
----
-Built-in: COUNT(), SUM(), ROUND(), DATE_FORMAT()
-Custom UDFs: GetSupplierAddress(), GetCustomerAge(), IsRecentSupplier(), GetProfitMargin()
-
-```sql
-SELECT product_name, ROUND(unit_price, 2) AS rounded_price
-FROM Products;
-```
-----
-
-✍️ Basic + Update/Delete
----
-🔹 INSERT INTO ...
-🔄 UPDATE ... SET ...
-❌ DELETE FROM ...
-
-INSERT INTO Products (product_id, product_name, unit_price)
-VALUES (101, 'Paracetamol 500mg', 25.00);
 
 📁 File Details
 ---  
 | Property       | Value                         |  
 |----------------|-------------------------------|  
 | File Name      | Phase-3.sql                   |  
-| Total Queries  | ~300+ SQL 🔥                   |  
+| Total Queries  | ~75+ SQL 🔥                   |  
 | Tables Covered | 15+ 🧱                        |  
 | Skill Level    | Intermediate – Advanced 👨‍💻  |  
 
