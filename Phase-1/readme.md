@@ -18,8 +18,8 @@ ___
 | Feature Details       | Description                                                                 |
 | --------------------- | --------------------------------------------------------------------------- |
 | **Database Name**     | Pharmacy\_Inventory\_Management                                             |
-| **Total Tables**      | 25                                                                          |
-| **Records per Table** | 20+                                                                         |
+| **Total Tables**      | 15                                                                         |
+| **Records per Table** | 10                                                                         |
 | **Constraints Used**  | PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, DEFAULT, CHECK, AUTO\_INCREMENT |
 ___
 🧱 Sample Tables & Entities
@@ -35,11 +35,11 @@ ___
 | **Customers**     | Patient profiles with allergies and insurance          |
 | **Prescriptions** | Prescription records and status                        |
 
-✅ All 25 tables follow relational structure with valid constraints and normalization.
+✅ All 15 tables follow relational structure with valid constraints and normalization.
 ___
 💾 Data Insertion
 --
-All tables are populated with at least 20+ meaningful records:
+All tables are populated with at least 10 meaningful records:
 
 ● Logical relationships maintained (e.g., product_id links Products with Inventory and Prescriptions).  
 ● Realistic details included such as batch numbers, expiry dates, prices, and patient information.  
@@ -72,7 +72,7 @@ ___
 --
 **🧱 Challenges**
 
-● Designing 25 meaningful, interconnected tables for pharmacy operations    
+● Designing 15 meaningful, interconnected tables for pharmacy operations    
 ● Ensuring constraints like FOREIGN KEY integrity during data insertion  
 ● Handling date-based fields (e.g., expiry, created_date) accurately  
 
